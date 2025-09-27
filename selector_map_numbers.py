@@ -27,6 +27,8 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 from playwright.sync_api import sync_playwright
+from datetime import datetime, timezone
+from urllib.parse import urlparse, parse_qs
 
 
 NumberRe = re.compile(r"[-+]?\d+(?:\.\d+)?")
@@ -279,11 +281,36 @@ def apply_selectors(
     return results
 
 
+def _date_from_url(url: str) -> str:
+    qs = parse_qs(urlparse(url).query)
+    t_vals = qs.get("t")
+    if t_vals:
+        try:
+            ts = int(t_vals[0])
+            dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+            return dt.date().isoformat()
+        except Exception:
+            return "unknown"
+    return "unknown"
+
+
+def _read_records_file(path: Path) -> List[str]:
+    if not path.exists():
+        return []
+    urls: List[str] = []
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        s = raw.strip()
+        if not s or s.startswith("#"):
+            continue
+        urls.append(s)
+    return urls
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Learn/apply CSS selectors to extract numbers by labels",
     )
-    ap.add_argument("--url", required=True)
+    ap.add_argument("--url", default=None)
     ap.add_argument("--important", default="important.txt")
     ap.add_argument("--template", default="selectors_template.json")
     ap.add_argument("--out", default="mapped_labels.json")
@@ -297,6 +324,14 @@ def main():
         action="store_true",
         help="Apply existing selectors to extract values",
     )
+    ap.add_argument(
+        "--records",
+        default=None,
+        help=(
+            "Path to records.txt that lists URLs (one per line). "
+            "If set, run in multi-URL mode."
+        ),
+    )
     args = ap.parse_args()
 
     url = args.url
@@ -306,6 +341,49 @@ def main():
 
     labels = parse_important(imp_path)
 
+    # 複数URLモード: records.txt を読み込む
+    if args.records:
+        rec_path = Path(args.records)
+        urls = _read_records_file(rec_path)
+        if not urls:
+            print(f"No URLs found in {rec_path}")
+            return
+
+        template: Dict[str, Dict[str, str]] = {}
+        if args.learn or not tpl_path.exists():
+            # 先頭のURLで学習
+            template = learn_selectors(urls[0], labels)
+            payload = {"url": urls[0], "selectors": template}
+            tpl_path.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            print(f"Saved selectors template -> {tpl_path}")
+        else:
+            try:
+                payload = json.loads(tpl_path.read_text(encoding="utf-8"))
+                template = payload.get("selectors", {})
+            except Exception:
+                template = {}
+
+        grouped: Dict[str, List[Dict[str, object]]] = {}
+        for u in urls:
+            res = apply_selectors(u, template)
+            d = _date_from_url(u)
+            grouped.setdefault(d, []).append({"url": u, "labels": res})
+
+        out_payload = {"records": grouped}
+        out_path.write_text(
+            json.dumps(out_payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"Saved records mapping -> {out_path}")
+        return
+
+    # 既存の単一URLモード
+    if url is None:
+        print("Error: --url is required when --records is not specified")
+        return
     template: Dict[str, Dict[str, str]] = {}
 
     if args.learn or not tpl_path.exists():

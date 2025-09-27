@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Body Composition Tracker</title>
+  <meta name="description" content="View body composition trends as interactive charts.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="assets/app.js" type="module" defer></script>
+</head>
+<body>
+  <!-- Mobile Hamburger Menu -->
+  <button class="hamburger-menu" id="hamburger-menu" aria-label="メニューを開く">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+  
+  <!-- Mobile Sidebar Overlay -->
+  <div class="mobile-sidebar-overlay" id="mobile-sidebar-overlay"></div>
+  
+  <header class="main-header">
+    <div class="header-container">
+      <div class="header-brand">
+        <h1 class="brand-title">Body Composition Tracker</h1>
+        <p class="brand-subtitle">Health Analytics Dashboard</p>
+      </div>
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li><a href="#overview" class="nav-link active" data-page="overview">Overview</a></li>
+          <li><a href="#records" class="nav-link" data-page="records">Records</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Overview Page -->
+    <div id="overview-page" class="page-content active">
+      <div class="layout">
+        <aside class="sidebar">
+          <h2>Measurements</h2>
+          <ul id="metric-list" class="metric-list"></ul>
+          <span id="status" class="status" aria-live="polite"></span>
+        </aside>
+
+        <section class="content">
+          <section class="chart-card">
+            <div class="chart-header">
+              <h2 id="chart-title">Measurement Trend</h2>
+              <div class="chart-controls-header">
+                <label class="dual-chart-toggle">
+                  <input type="checkbox" id="dual-chart-mode" />
+                  <span class="toggle-text">Dual Chart Mode</span>
+                </label>
+              </div>
+              <div id="help-popover" class="help-popover" role="dialog" aria-label="Metric help" hidden></div>
+            </div>
+            <canvas id="trend-chart"></canvas>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <!-- Records Page -->
+    <div id="records-page" class="page-content">
+      <div class="layout">
+        <aside class="sidebar">
+          <h2>Filters</h2>
+          <div class="filter-section">
+            <label for="date-filter">Date Range:</label>
+            <select id="date-filter" class="filter-select">
+              <option value="all">All Time</option>
+              <option value="30">Last 30 Days</option>
+              <option value="90">Last 90 Days</option>
+            </select>
+          </div>
+        </aside>
+
+        <section class="content">
+          <section class="table-card full-height">
+            <h2>All Records</h2>
+            <div class="table-wrap">
+              <table id="records-table">
+                <thead>
+                  <tr>
+                    <th>Date (UTC)</th>
+                    <th>URL</th>
+                    <th>Measurement</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <small>Last updated: <span id="last-updated">-</span></small>
+  </footer>
+</body>
+</html>

@@ -21,12 +21,12 @@
       "type": "text",
       "expect": "26"
     },
-    "ECF": {
+    "Extracellular Fluid": {
       "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.font-size-nom.t-center:nth-of-type(1) > div.bold:nth-of-type(1)",
       "type": "text",
       "expect": "16.3"
     },
-    "CF": {
+    "Cell Fluid": {
       "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.font-size-nom.t-center:nth-of-type(2) > div.bold:nth-of-type(1)",
       "type": "text",
       "expect": "24.3"
@@ -76,12 +76,12 @@
       "type": "text",
       "expect": "16.1"
     },
-    "BMI": {
+    "Body Mass Index": {
       "selector": "div.report:nth-of-type(3) > div.obesity-analysis-bmi:nth-of-type(12) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
       "type": "text",
       "expect": "24.4"
     },
-    "PBF": {
+    "Percent Body Fat": {
       "selector": "div.report:nth-of-type(3) > div.obesity-analysis-tbf:nth-of-type(13) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
       "type": "text",
       "expect": "22.6"
