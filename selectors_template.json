@@ -1,0 +1,90 @@
+{
+  "url": "https://www.fitmao.com/index.php?m=renti&a=print&iscan=1&origin=3&id=1488031&ishis=0&rpkey=8ee55553b10ef4e3a94df66fe5783a3040a196d5&f=en",
+  "selectors": {
+    "height": {
+      "selector": "div.report:nth-of-type(3) > div.basic.font-size-med:nth-of-type(1) > span.height.abs:nth-of-type(2)",
+      "type": "text",
+      "expect": "171.0"
+    },
+    "age": {
+      "selector": "div.report:nth-of-type(3) > div.basic.font-size-med:nth-of-type(1) > span.old.abs:nth-of-type(3)",
+      "type": "text",
+      "expect": "25"
+    },
+    "Score": {
+      "selector": "div.report:nth-of-type(3) > div.score.font-size-xlarge:nth-of-type(2) > div.box:nth-of-type(1)",
+      "type": "text",
+      "expect": "74.1"
+    },
+    "Physiological Age": {
+      "selector": "div.report:nth-of-type(3) > div.score.font-size-xlarge:nth-of-type(2) > div.box:nth-of-type(2)",
+      "type": "text",
+      "expect": "26"
+    },
+    "ECF": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.font-size-nom.t-center:nth-of-type(1) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "16.3"
+    },
+    "CF": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.font-size-nom.t-center:nth-of-type(2) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "24.3"
+    },
+    "Protein": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.protein.font-size-nom:nth-of-type(3) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "11.0"
+    },
+    "Minerals": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.inorganic-salt.font-size-nom:nth-of-type(4) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "3.3"
+    },
+    "Fat": {
+      "selector": "div.report:nth-of-type(3) > div.muscle-and-fat-fat:nth-of-type(11) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
+      "type": "text",
+      "expect": "16.1"
+    },
+    "Body Water": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.water.font-size-nom:nth-of-type(6) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "40.7"
+    },
+    "Soft Lean Mass": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.muscle-mass.font-size-nom:nth-of-type(7) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "52.5"
+    },
+    "Fat FreeMass": {
+      "selector": "div.report:nth-of-type(3) > div.composition:nth-of-type(3) > div.lean-body-mass.font-size-nom:nth-of-type(8) > div.bold:nth-of-type(1)",
+      "type": "text",
+      "expect": "55.2"
+    },
+    "Weight": {
+      "selector": "div.report:nth-of-type(3) > div.muscle-and-fat-weight:nth-of-type(9) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
+      "type": "text",
+      "expect": "71.4"
+    },
+    "Skeletal Muscle Mass": {
+      "selector": "div.report:nth-of-type(3) > div.muscle-and-fat-bones:nth-of-type(10) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
+      "type": "text",
+      "expect": "31.5"
+    },
+    "Body Fat Mass": {
+      "selector": "div.report:nth-of-type(3) > div.muscle-and-fat-fat:nth-of-type(11) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
+      "type": "text",
+      "expect": "16.1"
+    },
+    "BMI": {
+      "selector": "div.report:nth-of-type(3) > div.obesity-analysis-bmi:nth-of-type(12) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
+      "type": "text",
+      "expect": "24.4"
+    },
+    "PBF": {
+      "selector": "div.report:nth-of-type(3) > div.obesity-analysis-tbf:nth-of-type(13) > div.scale.abs:nth-of-type(1) > div.progress:nth-of-type(2) > div.data-text.font-size-nom:nth-of-type(2)",
+      "type": "text",
+      "expect": "22.6"
+    }
+  }
+}

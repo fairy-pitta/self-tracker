@@ -1,0 +1,12 @@
+# 画像処理とOCR用ライブラリ
+Pillow>=9.0.0
+pytesseract>=0.3.10
+
+# データ処理用
+numpy>=1.21.0
+
+# Web自動化用
+playwright>=1.40.0
+
+# その他
+pathlib2>=2.3.0
