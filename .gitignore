@@ -1,2 +1,12 @@
 # Ignore data directory (requested)
 data/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
