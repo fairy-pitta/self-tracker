@@ -167,6 +167,30 @@
           "Percent Body Fat": 23.1
         }
       }
+    ],
+    "2025-10-01": [
+      {
+        "url": "https://www.fitmao.com/index.php?m=renti&a=print&iscan=1&origin=3&dzid=&f=en&id=1502990&rpkey=c51c64d4f21bd5eb4dc90b3abe1dcee6b2c64cc0&t=1759293460",
+        "labels": {
+          "height": 171.0,
+          "age": 25.0,
+          "Score": 73.6,
+          "Physiological Age": 26.0,
+          "Extracellular Fluid": 16.1,
+          "Cell Fluid": 24.0,
+          "Protein": 10.8,
+          "Minerals": 3.3,
+          "Fat": 15.7,
+          "Body Water": 40.1,
+          "Soft Lean Mass": 51.7,
+          "Fat FreeMass": 54.4,
+          "Weight": 70.2,
+          "Skeletal Muscle Mass": 31.0,
+          "Body Fat Mass": 15.7,
+          "Body Mass Index": 24.0,
+          "Percent Body Fat": 22.4
+        }
+      }
     ]
   }
 }

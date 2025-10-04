@@ -1,0 +1,23 @@
+name: shuna
+height : 171.0cm 
+age : 25 
+gender: male 
+time/date : 2025-09-23 11:49:00
+
+Score 74.1 
+Physiological Age:26 
+
+Extracellular Fluid 16.3 
+Cell Fluid: 24.3 
+Protein: 11.0 
+Minerals: 3.3 
+Fat: 16.1 
+Body Water 40.7 
+Soft Lean Mass 52.5 
+Fat FreeMass 55.2 
+Weight 71.4 
+Skeletal Muscle Mass 31.5 
+Body Fat Mass 16.1
+
+Body Mass Index : 24.4
+Percent Body Fat: 22.6
